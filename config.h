@@ -148,16 +148,19 @@
 
 #elif defined TARGET_GENERIC_F103_PC13
 
+    #elif defined TARGET_GENERIC_F103_PC13
 
-    #define LED_BANK            GPIOC
-    #define LED_PIN             13
-    #define LED_ON_STATE        0
+    #define XTAL16M 1
+    #define HAS_MAPLE_HARDWARE  0
+    
+    // Point at a row pin - harmless toggle during bootloader
+    #define LED_BANK            GPIOB
+    #define LED_PIN             0
+    #define LED_ON_STATE        1
 
-// Use Boot1 PB2 as the button, as hardly anyone uses this pin as GPIO
-// Need to set the button input mode to just CR_INPUT and not CR_INPUT_PU_PD because the external pullup on the jumplink is very weak
-	#define BUTTON_INPUT_MODE 	CR_INPUT
-    #define BUTTON_BANK GPIOB
-    #define BUTTON_PIN 2
+    // Same pin, requires 3.3V short to trigger - won't happen accidentally
+    #define BUTTON_BANK         GPIOB
+    #define BUTTON_PIN          0
     #define BUTTON_PRESSED_STATE 1
 	
 #elif defined TARGET_GENERIC_F103_PC13_FASTBOOT
