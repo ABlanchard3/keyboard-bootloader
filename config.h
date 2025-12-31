@@ -148,10 +148,7 @@
 
 #elif defined TARGET_GENERIC_F103_PC13
 
-    #elif defined TARGET_GENERIC_F103_PC13
-
     #define XTAL16M 1
-    #define HAS_MAPLE_HARDWARE  0
     
     // Point at a row pin - harmless toggle during bootloader
     #define LED_BANK            GPIOB
